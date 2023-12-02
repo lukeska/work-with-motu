@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, computed } from "vue";
+import { onMounted, ref } from "vue";
 import { TransitionRoot } from "@headlessui/vue";
 import { roundCorners } from "svg-round-corners";
 import Button from "./components/Button.vue";
@@ -19,7 +19,7 @@ const mastersOfTheUniver = [
 		name: "Evil Lynn",
 		location: "A mysterious and ancient sorcerer's lair",
 		bio: "Evil-Lyn, sorceress extraordinaire! Mistress of dark magic, strategic brilliance, and occasional eye-rolling at Skeletor's plans. Embracing the shadows, I command the arcane forces to achieve our wicked goals. Join me in the pursuit of power, secrets, and the occasional sinister chuckle. Beware, for chaos and cunning are my allies. #EvilLyn #MistressOfMagic #Sorceress",
-		pic: "evil-lynn.jpg",
+		pic: "./work-with-motu/evil-lynn.jpg",
 		skills: [
 			{ name: "Sorcery", value: "10/10" },
 			{ name: "Manipulation", value: "9/10" },
@@ -33,7 +33,7 @@ const mastersOfTheUniver = [
 		name: "Skeletor",
 		location: "Snake Mountain",
 		bio: "Skeletor, the cackling overlord of evil! Master of mischief, aspiring conqueror, and eternal rival to He-Man. Unleashing chaos and sarcasm in equal measure. Join me on this twisted journey through Snake Mountain, where every day is a scheme to rule Eternia. Fear me, mortals, as I command the forces of darkness and revel in the chaos of villainy! #SkeletorLaughsLast #EvilOverlord",
-		pic: "skeletor.jpg",
+		pic: "./work-with-motu/skeletor.jpg",
 		skills: [
 			{ name: "Dark Magic", value: "10/10" },
 			{ name: "Intelligence", value: "9/10" },
@@ -47,7 +47,7 @@ const mastersOfTheUniver = [
 		name: "He-Man",
 		location: "Castle Grayskull",
 		bio: "He-Man, the mighty wielder of the Power of Grayskull! Defender of Eternia, master of the universe, and all-around hero. By the power of Twitter, I share wisdom, courage, and a touch of humor. Join me on my adventures as we battle Skeletor, explore Castle Grayskull, and celebrate the triumph of good over evil. #ByThePowerOfTwitter #HeMan #CastleGrayskull",
-		pic: "he-man.jpg",
+		pic: "./work-with-motu/he-man.jpg",
 		skills: [
 			{ name: "Strength", value: "11/10" },
 			{ name: "Endurance", value: "9/10" },
@@ -61,7 +61,7 @@ const mastersOfTheUniver = [
 		name: "Teela",
 		location: "Royal Palace",
 		bio: "Teela, fearless warrior of Eternia! Captain of the Royal Guard, defender of Castle Grayskull, and loyal ally to He-Man. Embracing strength, honor, and a touch of sarcasm. Join me on the front lines as we stand against the forces of evil. Training hard, fighting harder, and always ready for the next adventure! #Teela #RoyalGuard #RoyalPalace #StrengthAndHonor",
-		pic: "teela.jpg",
+		pic: "./work-with-motu/teela.jpg",
 		skills: [
 			{ name: "Combat Skill", value: "10/10" },
 			{ name: "Agility", value: "9/10" },
@@ -75,7 +75,7 @@ const mastersOfTheUniver = [
 		name: "Orko",
 		location: "Trolla",
 		bio: "Orko, the magical mischief-maker! Jovial jester from Trolla, spreading laughter and unintentional chaos. Join me on my whimsical adventures, where spells go awry, and pranks abound. Despite the mishaps, my heart is pure, and I'm always ready to lend a helping hand. Let's navigate the ups and downs with a smile and a bit of magic! #Orko #TrollanMagic #KeepSmiling",
-		pic: "orko.jpg",
+		pic: "./work-with-motu/orko.jpg",
 		skills: [
 			{ name: "Magic Proficiency", value: "10/10" },
 			{ name: "Playfulness", value: "9/10" },
@@ -87,10 +87,8 @@ const mastersOfTheUniver = [
 ];
 
 onMounted(() => {
-	// Choose the element you want to observe (body in this case)
 	const bodyElement = document.body;
 
-	// Start observing the body element
 	resizeObserver.observe(bodyElement);
 
 	initCurveConnections();
@@ -108,29 +106,23 @@ const drawCurveConnection = (buttonName, buttonStart) => {
 	const stroke = 1;
 	let strokeColor = "white";
 	let opacity = "opacity-20";
-	const gap = 0;
-	//console.log(box.value.getBoundingClientRect());
-	//return;
+
 	const rect1 = buttonStart.value.$el.getBoundingClientRect();
 	const rect2 = box.value.getBoundingClientRect();
 	const xDiff = rect2.x - rect1.x;
 	const yDiff = rect2.y - rect1.height - rect1.y;
 
 	const xStart = rect1.width / 2 + stroke / 2;
-	const yStart = rect1.height + gap;
 
-	const yMax = yDiff - rect1.height / 2 - gap + rect1.height;
-	const xMax = xDiff + rect1.width / 2 - gap;
-
-	// define path for mobile view
-	let svgPathData = `m${xStart + 640},${yStart}l0,${yDiff / 2}l${
+	// define path for small screens
+	let svgPathData = `m${xStart + 640},${rect1.height}l0,${yDiff / 2}l${
 		xDiff - rect1.width / 2 + rect2.width / 2
 	},0l0.0001,${yDiff / 2}`; // the last 0.0001 is a hack to prevent linear gradient to have the line disappear if it's perfectly straight
 
 	let viewportWidth =
 		window.innerWidth || document.documentElement.clientWidth;
 
-	// redefine path for desktop view
+	// redefine path for large screens
 	if (viewportWidth >= 1280) {
 		svgPathData = `m${rect1.width},${rect1.height / 2 + 300}l${
 			(rect2.x - rect1.x - rect1.width) / 2
@@ -229,7 +221,6 @@ const getPath = (path, strokeWidth, strokeColor, opacity) => {
 
 	pathElement.setAttribute("d", path);
 	pathElement.setAttribute("stroke", strokeColor);
-	//pathElement.setAttribute("stroke", "white");
 	pathElement.setAttribute("stroke-width", strokeWidth);
 	pathElement.setAttribute("stroke-linecap", "round");
 	pathElement.setAttribute("fill", "none");
@@ -239,8 +230,6 @@ const getPath = (path, strokeWidth, strokeColor, opacity) => {
 
 const resizeObserver = new ResizeObserver((entries) => {
 	for (const entry of entries) {
-		// entry.target is the observed element (body in this case)
-		// entry.contentRect provides information about the element's new size
 		initCurveConnections();
 	}
 });
@@ -265,35 +254,35 @@ const setActiveButton = (buttonName) => {
 				class="flex justify-between mb-24 xl:mb-0 xl:w-1/3 xl:flex-col xl:gap-y-10 xl:justify-center"
 			>
 				<Button
-					img="evil-lynn.jpg"
+					img="./work-with-motu/evil-lynn.jpg"
 					ref="button1"
 					@click.prevent="setActiveButton('button1')"
 					:active="selectedButton == 'button1'"
 					>Evil Lynn</Button
 				>
 				<Button
-					img="skeletor.jpg"
+					img="./work-with-motu/skeletor.jpg"
 					ref="button2"
 					@click.prevent="setActiveButton('button2')"
 					:active="selectedButton == 'button2'"
 					>Skeletor</Button
 				>
 				<Button
-					img="he-man.jpg"
+					img="./work-with-motu/he-man.jpg"
 					ref="button3"
 					@click.prevent="setActiveButton('button3')"
 					:active="selectedButton == 'button3'"
 					>He-Man</Button
 				>
 				<Button
-					img="teela.jpg"
+					img="./work-with-motu/teela.jpg"
 					ref="button4"
 					@click.prevent="setActiveButton('button4')"
 					:active="selectedButton == 'button4'"
 					>Teela</Button
 				>
 				<Button
-					img="orko.jpg"
+					img="./work-with-motu/orko.jpg"
 					ref="button5"
 					@click.prevent="setActiveButton('button5')"
 					:active="selectedButton == 'button5'"

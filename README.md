@@ -2,6 +2,8 @@
 
 This is a practice project inspired by this [@MrNick_Buzz's tweet](https://twitter.com/MrNick_Buzz/status/1730257818035646729).
 
+The resulting page is [visible here](https://lukeska.github.io/work-with-motu/).
+
 Nick's design has a couple intersting details that were challenging to implement:
 
 1. Connecting lines from the buttons to the main content box.
