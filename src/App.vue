@@ -19,7 +19,7 @@ const mastersOfTheUniver = [
 		name: "Evil Lynn",
 		location: "A mysterious and ancient sorcerer's lair",
 		bio: "Evil-Lyn, sorceress extraordinaire! Mistress of dark magic, strategic brilliance, and occasional eye-rolling at Skeletor's plans. Embracing the shadows, I command the arcane forces to achieve our wicked goals. Join me in the pursuit of power, secrets, and the occasional sinister chuckle. Beware, for chaos and cunning are my allies. #EvilLyn #MistressOfMagic #Sorceress",
-		pic: "./work-with-motu/evil-lynn.jpg",
+		pic: "/work-with-motu/evil-lynn.jpg",
 		skills: [
 			{ name: "Sorcery", value: "10/10" },
 			{ name: "Manipulation", value: "9/10" },
@@ -33,7 +33,7 @@ const mastersOfTheUniver = [
 		name: "Skeletor",
 		location: "Snake Mountain",
 		bio: "Skeletor, the cackling overlord of evil! Master of mischief, aspiring conqueror, and eternal rival to He-Man. Unleashing chaos and sarcasm in equal measure. Join me on this twisted journey through Snake Mountain, where every day is a scheme to rule Eternia. Fear me, mortals, as I command the forces of darkness and revel in the chaos of villainy! #SkeletorLaughsLast #EvilOverlord",
-		pic: "./work-with-motu/skeletor.jpg",
+		pic: "/work-with-motu/skeletor.jpg",
 		skills: [
 			{ name: "Dark Magic", value: "10/10" },
 			{ name: "Intelligence", value: "9/10" },
@@ -47,7 +47,7 @@ const mastersOfTheUniver = [
 		name: "He-Man",
 		location: "Castle Grayskull",
 		bio: "He-Man, the mighty wielder of the Power of Grayskull! Defender of Eternia, master of the universe, and all-around hero. By the power of Twitter, I share wisdom, courage, and a touch of humor. Join me on my adventures as we battle Skeletor, explore Castle Grayskull, and celebrate the triumph of good over evil. #ByThePowerOfTwitter #HeMan #CastleGrayskull",
-		pic: "./work-with-motu/he-man.jpg",
+		pic: "/work-with-motu/he-man.jpg",
 		skills: [
 			{ name: "Strength", value: "11/10" },
 			{ name: "Endurance", value: "9/10" },
@@ -61,7 +61,7 @@ const mastersOfTheUniver = [
 		name: "Teela",
 		location: "Royal Palace",
 		bio: "Teela, fearless warrior of Eternia! Captain of the Royal Guard, defender of Castle Grayskull, and loyal ally to He-Man. Embracing strength, honor, and a touch of sarcasm. Join me on the front lines as we stand against the forces of evil. Training hard, fighting harder, and always ready for the next adventure! #Teela #RoyalGuard #RoyalPalace #StrengthAndHonor",
-		pic: "./work-with-motu/teela.jpg",
+		pic: "/work-with-motu/teela.jpg",
 		skills: [
 			{ name: "Combat Skill", value: "10/10" },
 			{ name: "Agility", value: "9/10" },
@@ -75,7 +75,7 @@ const mastersOfTheUniver = [
 		name: "Orko",
 		location: "Trolla",
 		bio: "Orko, the magical mischief-maker! Jovial jester from Trolla, spreading laughter and unintentional chaos. Join me on my whimsical adventures, where spells go awry, and pranks abound. Despite the mishaps, my heart is pure, and I'm always ready to lend a helping hand. Let's navigate the ups and downs with a smile and a bit of magic! #Orko #TrollanMagic #KeepSmiling",
-		pic: "./work-with-motu/orko.jpg",
+		pic: "/work-with-motu/orko.jpg",
 		skills: [
 			{ name: "Magic Proficiency", value: "10/10" },
 			{ name: "Playfulness", value: "9/10" },
@@ -254,35 +254,35 @@ const setActiveButton = (buttonName) => {
 				class="flex justify-between mb-24 xl:mb-0 xl:w-1/3 xl:flex-col xl:gap-y-10 xl:justify-center"
 			>
 				<Button
-					img="./work-with-motu/evil-lynn.jpg"
+					img="/work-with-motu/evil-lynn.jpg"
 					ref="button1"
 					@click.prevent="setActiveButton('button1')"
 					:active="selectedButton == 'button1'"
 					>Evil Lynn</Button
 				>
 				<Button
-					img="./work-with-motu/skeletor.jpg"
+					img="/work-with-motu/skeletor.jpg"
 					ref="button2"
 					@click.prevent="setActiveButton('button2')"
 					:active="selectedButton == 'button2'"
 					>Skeletor</Button
 				>
 				<Button
-					img="./work-with-motu/he-man.jpg"
+					img="/work-with-motu/he-man.jpg"
 					ref="button3"
 					@click.prevent="setActiveButton('button3')"
 					:active="selectedButton == 'button3'"
 					>He-Man</Button
 				>
 				<Button
-					img="./work-with-motu/teela.jpg"
+					img="/work-with-motu/teela.jpg"
 					ref="button4"
 					@click.prevent="setActiveButton('button4')"
 					:active="selectedButton == 'button4'"
 					>Teela</Button
 				>
 				<Button
-					img="./work-with-motu/orko.jpg"
+					img="/work-with-motu/orko.jpg"
 					ref="button5"
 					@click.prevent="setActiveButton('button5')"
 					:active="selectedButton == 'button5'"
