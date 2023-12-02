@@ -334,7 +334,7 @@ const setActiveButton = (buttonName) => {
 							>
 								<div v-for="skill in master.skills" class="">
 									<span
-										class="font-mono inline-block w-[44px] px-1 py-px mr-2 text-sm text-right text-white/90 bg-green-600 rounded"
+										class="font-mono inline-block w-[48px] px-1 py-px mr-2 text-sm text-right text-white/90 bg-green-600 rounded"
 										>{{ skill.value }}</span
 									>
 									<span>{{ skill.name }}</span>
