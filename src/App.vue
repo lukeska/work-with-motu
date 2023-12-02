@@ -242,7 +242,7 @@ const setActiveButton = (buttonName) => {
 </script>
 
 <template>
-	<div class="container px-4 py-20 mx-auto">
+	<div class="container px-4 py-10 mx-auto overflow-x-hidden md:py-20">
 		<div
 			class="mb-16 xl:w-2/3 xl:pl-[33%] xl:text-left text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-50% via-[#efe4b9] to-75% to-[#dd9cbe]"
 		>
@@ -330,7 +330,7 @@ const setActiveButton = (buttonName) => {
 								Skills
 							</div>
 							<div
-								class="grid grid-cols-2 gap-y-2 text-slate-400"
+								class="grid grid-cols-1 md:grid-cols-2 gap-y-2 text-slate-400"
 							>
 								<div v-for="skill in master.skills" class="">
 									<span
