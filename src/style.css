@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gradient-border {
+    background:
+        linear-gradient(
+            var(--gradient-direction),
+            var(--overlay-start),
+            var(--overlay-end)) padding-box,
+        linear-gradient(
+            var(--gradient-direction),
+            var(--gradient-start),
+            var(--gradient-end)) border-box;
+}
+
+.box-gradient-border {
+    --gradient-direction:180deg;
+    --gradient-start:#c07fea;
+    --gradient-end:#d4a68b;
+    --overlay-start:rgba(15,15,35,1);
+    --overlay-end:rgba(15,15,35,1);
+}
+
+.button-gradient-border {
+    --gradient-direction:180deg;
+    --gradient-start:#74729f;
+    --gradient-end:#2c2c43;
+    --overlay-start:#0f0f21;
+    --overlay-end:#0e0e23;
+}
+
+@media screen and (min-width: 1280px) {
+    .box-gradient-border {
+        --gradient-direction:90deg;
+    }
+}
