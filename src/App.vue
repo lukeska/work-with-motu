@@ -242,107 +242,113 @@ const setActiveButton = (buttonName) => {
 </script>
 
 <template>
-	<div class="container px-4 py-10 mx-auto overflow-x-hidden md:py-20">
-		<div
-			class="mb-16 xl:w-2/3 xl:pl-[33%] xl:text-left text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-50% via-[#efe4b9] to-75% to-[#dd9cbe]"
-		>
-			Work with your soon-to-be favorite Master of the Universe.
-		</div>
-
-		<div class="xl:flex">
+	<div class="h-full overflow-x-clip">
+		<div class="container px-4 py-10 mx-auto md:py-20">
 			<div
-				class="flex justify-between mb-24 xl:mb-0 xl:w-1/3 xl:flex-col xl:gap-y-10 xl:justify-center"
+				class="mb-16 xl:w-2/3 xl:pl-[33%] xl:text-left text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-50% via-[#efe4b9] to-75% to-[#dd9cbe]"
 			>
-				<Button
-					img="/work-with-motu/evil-lynn.jpg"
-					ref="button1"
-					@click.prevent="setActiveButton('button1')"
-					:active="selectedButton == 'button1'"
-					>Evil Lynn</Button
-				>
-				<Button
-					img="/work-with-motu/skeletor.jpg"
-					ref="button2"
-					@click.prevent="setActiveButton('button2')"
-					:active="selectedButton == 'button2'"
-					>Skeletor</Button
-				>
-				<Button
-					img="/work-with-motu/he-man.jpg"
-					ref="button3"
-					@click.prevent="setActiveButton('button3')"
-					:active="selectedButton == 'button3'"
-					>He-Man</Button
-				>
-				<Button
-					img="/work-with-motu/teela.jpg"
-					ref="button4"
-					@click.prevent="setActiveButton('button4')"
-					:active="selectedButton == 'button4'"
-					>Teela</Button
-				>
-				<Button
-					img="/work-with-motu/orko.jpg"
-					ref="button5"
-					@click.prevent="setActiveButton('button5')"
-					:active="selectedButton == 'button5'"
-					>Orko</Button
-				>
+				Work with your soon-to-be favorite Master of the Universe.
 			</div>
-			<div
-				ref="box"
-				class="gradient-border box-gradient-border max-w-[700px] mx-auto xl:max-w-none xl:w-2/3 px-6 md:px-24 py-12 border border-transparent rounded-3xl flex-1 ring-[10px] ring-[#232436] outline outline-[10px] outline-[#19192b] outline-offset-[10px]"
-			>
-				<template
-					v-for="master in mastersOfTheUniver"
-					:key="master.name"
+			<div class="xl:flex">
+				<div
+					class="flex justify-between mb-24 xl:mb-0 xl:w-1/3 xl:flex-col xl:gap-y-10 xl:justify-center"
 				>
-					<div
-						v-if="master.button == selectedButton"
-						class="box-content relative z-40 space-y-10"
+					<Button
+						img="/work-with-motu/evil-lynn.jpg"
+						ref="button1"
+						@click.prevent="setActiveButton('button1')"
+						:active="selectedButton == 'button1'"
+						>Evil Lynn</Button
 					>
-						<div class="flex items-center space-x-4">
-							<img
-								:src="master.pic"
-								:alt="master.name"
-								class="w-10 h-10 rounded-full"
-							/>
-							<h2 class="text-2xl font-black">
-								{{ master.name }}
-							</h2>
-						</div>
-						<div>
-							<div class="mb-3 font-bold text-indigo-100">
-								Location
+					<Button
+						img="/work-with-motu/skeletor.jpg"
+						ref="button2"
+						@click.prevent="setActiveButton('button2')"
+						:active="selectedButton == 'button2'"
+						>Skeletor</Button
+					>
+					<Button
+						img="/work-with-motu/he-man.jpg"
+						ref="button3"
+						@click.prevent="setActiveButton('button3')"
+						:active="selectedButton == 'button3'"
+						>He-Man</Button
+					>
+					<Button
+						img="/work-with-motu/teela.jpg"
+						ref="button4"
+						@click.prevent="setActiveButton('button4')"
+						:active="selectedButton == 'button4'"
+						>Teela</Button
+					>
+					<Button
+						img="/work-with-motu/orko.jpg"
+						ref="button5"
+						@click.prevent="setActiveButton('button5')"
+						:active="selectedButton == 'button5'"
+						>Orko</Button
+					>
+				</div>
+				<div
+					ref="box"
+					class="gradient-border box-gradient-border max-w-[700px] mx-auto xl:max-w-none xl:w-2/3 px-6 md:px-24 py-12 border border-transparent rounded-3xl flex-1 ring-[10px] ring-[#232436] outline outline-[10px] outline-[#19192b] outline-offset-[10px]"
+				>
+					<template
+						v-for="master in mastersOfTheUniver"
+						:key="master.name"
+					>
+						<div
+							v-if="master.button == selectedButton"
+							class="box-content relative z-40 space-y-10"
+						>
+							<div class="flex items-center space-x-4">
+								<img
+									:src="master.pic"
+									:alt="master.name"
+									class="w-10 h-10 rounded-full"
+								/>
+								<h2 class="text-2xl font-black">
+									{{ master.name }}
+								</h2>
 							</div>
-							<div class="text-slate-400">
-								{{ master.location }}
+							<div>
+								<div class="mb-3 font-bold text-indigo-100">
+									Location
+								</div>
+								<div class="text-slate-400">
+									{{ master.location }}
+								</div>
 							</div>
-						</div>
-						<div>
-							<div class="mb-3 font-bold text-indigo-100">
-								Description
+							<div>
+								<div class="mb-3 font-bold text-indigo-100">
+									Description
+								</div>
+								<div class="text-slate-400">
+									{{ master.bio }}
+								</div>
 							</div>
-							<div class="text-slate-400">{{ master.bio }}</div>
-						</div>
-						<div>
-							<div class="mb-3 font-bold text-indigo-100">
-								Skills
-							</div>
-							<div
-								class="grid grid-cols-1 md:grid-cols-2 gap-y-2 text-slate-400"
-							>
-								<div v-for="skill in master.skills" class="">
-									<span
-										class="font-mono inline-block w-[48px] px-1 py-px mr-2 text-sm text-right text-white/90 bg-green-600 rounded"
-										>{{ skill.value }}</span
+							<div>
+								<div class="mb-3 font-bold text-indigo-100">
+									Skills
+								</div>
+								<div
+									class="grid grid-cols-1 md:grid-cols-2 gap-y-2 text-slate-400"
+								>
+									<div
+										v-for="skill in master.skills"
+										class=""
 									>
-									<span>{{ skill.name }}</span>
+										<span
+											class="font-mono inline-block w-[48px] px-1 py-px mr-2 text-sm text-right text-white/90 bg-green-600 rounded"
+											>{{ skill.value }}</span
+										>
+										<span>{{ skill.name }}</span>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</template>
+					</template>
+				</div>
 			</div>
 		</div>
 	</div>
